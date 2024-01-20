@@ -31,7 +31,7 @@ function Banner() {
   infinite={true}
   autoPlay={true}
 //   autoPlay={this.props.deviceType !== "mobile" ? true : false}
-  autoPlaySpeed={4000}
+  autoPlaySpeed={5000}
     >
       {bannerData.map((data, index) => (
         <Image key={index} src={data.url} alt='banner' />
