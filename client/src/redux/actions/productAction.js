@@ -12,3 +12,15 @@ export const getproducts=()=> async(dispatch)=>{
         dispatch({type:"failure",payload:error.message})
     }
 }
+
+export const getProductDetails=(id)=> async (dispatch)=>{
+    console.log("inside getProductDetails reducerrr ",id);
+    try {
+        const {data}=await axios.get(`${URL}/product/${id}`);
+       console.log("response of producss single",data);
+       dispatch({type:"detailsucess",payload:data})
+    } catch (error) {
+        console.log("error while getting products details apiiii",error.message);
+        dispatch({type:"detailsfailure",payload:error.message})
+    }
+}

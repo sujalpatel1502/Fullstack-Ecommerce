@@ -16,3 +16,19 @@ export const getProductsReducer=(state={products:[]},action)=>{
 
 
 }
+
+export const getProductDetailReducer=(state={product:{}},action)=>{
+
+    switch (action.type) {
+        case "detailsucess":
+            return {product:action.payload}
+            
+        case "detailsfailure":
+            return {error:action.payload}
+        default:
+            return state;
+            // break;
+    }
+
+
+}

@@ -1,5 +1,5 @@
 import express from 'express';
-import { usersignup,userlogin,getProducts } from '../controllers/user-controller.js';
+import { usersignup,userlogin,getProducts,getDetailProduct } from '../controllers/user-controller.js';
 
 
 const router = express.Router();
@@ -7,6 +7,6 @@ const router = express.Router();
 router.post('/signup',usersignup);
 router.post('/login',userlogin);
 router.get('/products',getProducts)
-
+router.get('/product/:id',getDetailProduct)
 
 export default router

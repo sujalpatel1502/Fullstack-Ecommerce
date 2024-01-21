@@ -38,11 +38,26 @@ export const userlogin= async(request,response)=>{
 }
 
 export const getProducts= async(req,res)=>{
+    console.log("insideeeeeeeee");
     try {
        const products=await Product.find({});
        res.status(200).json(products)
     } catch (error) {
         console.log("eroor while getting products",error);
+        res.status(500).json({message:error.message})
+    }
+}
+
+export const getDetailProduct=async(req,res)=>{
+    console.log("insideeeeeeeeedetailssss");
+    try {
+        const id=req.params.id;
+        console.log("idddd",id)
+       const product = await Product.findOne({'id':id})
+       console.log("productt",product);
+       res.status(200).json(product)
+    } catch (error) {
+        console.log("eroor while getting products details",error);
         res.status(500).json({message:error.message})
     }
 }
