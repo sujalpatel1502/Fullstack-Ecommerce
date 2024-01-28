@@ -1,4 +1,4 @@
-import { Box, Grid, Typography, styled } from "@mui/material";
+import { Box, Button, Grid, Typography, styled } from "@mui/material";
 import { useSelector } from "react-redux"
 import CartItem from "./CartItem";
 import TotalView from "./TotalView";
@@ -12,7 +12,20 @@ const Header = styled(Box)`
     padding:15px 24px;
 
 `
+const Buttonwrap = styled(Box)`
+    padding:10px 27px;
+    box-shadow:0 -2px 10px 0 rgb(0 0 0 / 10%)
 
+`
+
+const STyledButton=styled(Button)`
+    display:flex;
+    margin-left:auto;
+    background:#fb641b;
+    color:#fff;
+    width:250px;
+    height:51px;
+`
 const Cart=()=>{
     const {cartItems}=useSelector(state => state.cart);
     return(
@@ -29,9 +42,12 @@ const Cart=()=>{
                                     <CartItem item={item}/>
                                 ))
                             }
+                            <Buttonwrap>
+                                <STyledButton>Place Order</STyledButton>
+                            </Buttonwrap>
                     </Grid>
                     <Grid item lg={3} md={3} sm={12} xs={12}>
-                                <TotalView/>
+                                <TotalView cartItems={cartItems}/>
                     </Grid>
 
                 </Container>
